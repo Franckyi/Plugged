@@ -1,0 +1,49 @@
+plugins {
+    id "architectury-plugin" version "3.4-SNAPSHOT"
+    id "dev.architectury.loom" version "0.12.0-SNAPSHOT" apply false
+    id "org.jetbrains.kotlin.jvm" version "1.7.10" apply false
+    id "org.jetbrains.kotlin.plugin.serialization" version "1.7.10" apply false
+}
+
+architectury {
+    minecraft = rootProject.minecraft_version
+}
+
+subprojects {
+    apply plugin: "dev.architectury.loom"
+    apply plugin: "org.jetbrains.kotlin.jvm"
+    apply plugin: "org.jetbrains.kotlin.plugin.serialization"
+
+    dependencies {
+        minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
+        mappings "net.fabricmc:yarn:${rootProject.yarn_version}:v2"
+
+        implementation "dev.franckyi:karith:${rootProject.karith_version}"
+        implementation "dev.franckyi.kbuttplug:kbuttplug:${rootProject.kbuttplug_version}"
+        implementation "io.github.microutils:kotlin-logging-jvm:${rootProject.kotlin_logging_version}"
+        runtimeOnly "dev.franckyi.kbuttplug:kbuttplug-natives:${rootProject.kbuttplug_natives_version}"
+    }
+
+    compileKotlin {
+        kotlinOptions.jvmTarget = '17'
+    }
+}
+
+allprojects {
+    apply plugin: "java"
+    apply plugin: "architectury-plugin"
+    apply plugin: "maven-publish"
+
+    archivesBaseName = rootProject.archives_base_name
+    version = rootProject.mod_version
+    group = rootProject.maven_group
+
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+        options.release = 17
+    }
+
+    java {
+        withSourcesJar()
+    }
+}

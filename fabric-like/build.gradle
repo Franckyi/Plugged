@@ -1,0 +1,20 @@
+architectury {
+    common(rootProject.enabled_platforms.split(","))
+}
+
+repositories {
+    maven {url "https://maven.terraformersmc.com/" }
+    maven { url "https://maven.shedaniel.me/" }
+}
+
+dependencies {
+    modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
+    modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
+    // Remove the next line if you don't want to depend on the API
+    modApi "dev.architectury:architectury-fabric:${rootProject.architectury_version}"
+    modImplementation "net.fabricmc:fabric-language-kotlin:${rootProject.fabric_language_kotlin_version}"
+    modImplementation "com.terraformersmc:modmenu:${rootProject.modmenu_version}"
+    modImplementation "me.shedaniel.cloth:cloth-config-fabric:${rootProject.cloth_config_version}"
+
+    compileClasspath(project(path: ":common", configuration: "namedElements")) { transitive false }
+}

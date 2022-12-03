@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "plugged",
+  "version": "${version}",
+  "name": "Plugged",
+  "description": "Mod that controls intimate hardware and makes it react to various configurable in-game events.",
+  "authors": [
+    "Franckyi"
+  ],
+  "contact": {
+  },
+  "license": "MIT",
+  "icon": "icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      {
+        "adapter": "kotlin",
+        "value": "dev.franckyi.plugged.PluggedFabricMod"
+      }
+    ],
+    "modmenu": [
+      "dev.franckyi.plugged.PluggedModMenuImpl"
+    ]
+  },
+  "mixins": [
+    "plugged.mixins.json",
+    "plugged-common.mixins.json"
+  ],
+  "depends": {
+    "minecraft": ">=1.19",
+    "fabric": "*",
+    "fabric-language-kotlin": ">=1.8",
+    "architectury": ">=5.7",
+    "cloth-config": ">=7.0"
+  }
+}

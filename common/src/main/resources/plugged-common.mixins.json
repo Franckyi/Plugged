@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "dev.franckyi.plugged.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "AnvilScreenHandlerMixin",
+    "BlockMixin",
+    "ClientPlayNetworkHandlerMixin",
+    "ClientWorldMixin",
+    "EnchantmentScreenHandlerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "mixin": [
+    "plugged.mixins.json",
+    "plugged-common.mixins.json"
+  ],
+  "quilt_loader": {
+    "group": "${group}",
+    "id": "plugged",
+    "version": "${version}",
+    "name": "Plugged",
+    "description": "This is an example description! Tell everyone what your mod is about!",
+    "authors": ["Me!"],
+    "contact": {
+      "sources": "https://github.com/architectury/architectury-templates"
+    },
+    "license": "MIT",
+    "icon": "icon.png",
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "environment": "client",
+    "entrypoints": {
+      "client_init": "dev.franckyi.plugged.PluggedQuiltMod"
+    },
+    "depends": [
+      {
+        "id": "quilt_loader",
+        "version": "*"
+      },
+      {
+        "id": "quilt_base",
+        "version": "*"
+      },
+      {
+        "id": "minecraft",
+        "version": ">=1.19"
+      },
+      {
+        "id": "architectury",
+        "version": ">=5.7.28"
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+modLoader = "kotlinforforge"
+loaderVersion = "[3,)"
+#issueTrackerURL = ""
+license = "MIT"
+
+[[mods]]
+modId = "plugged"
+version = "${version}"
+displayName = "Plugged"
+authors = "Me!"
+description = '''
+This is an example description! Tell everyone what your mod is about!
+'''
+#logoFile = ""
+
+[[dependencies.plugged]]
+modId = "forge"
+mandatory = true
+versionRange = "[41,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.plugged]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.19,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.plugged]]
+modId = "architectury"
+mandatory = true
+versionRange = "[5.7.28,)"
+ordering = "AFTER"
+side = "BOTH"
